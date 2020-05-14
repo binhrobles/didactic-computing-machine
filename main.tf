@@ -14,6 +14,7 @@ provider "aws" {
 
 module "eb" {
   source                = "./infra/beanstalk"
+  app_env_name          = var.app_env_name
   region                = var.region
   db_user               = var.db_user
   db_password           = var.db_password
