@@ -1,8 +1,4 @@
-<img src="https://github.com/binhrobles/didactic-computing-machine/workflows/Redis%20Listener%20Dev/badge.svg">
-<img src="https://github.com/binhrobles/didactic-computing-machine/workflows/Express%20Server%20Dev/badge.svg">
-<img src="https://github.com/binhrobles/didactic-computing-machine/workflows/NGINX%20Dev/badge.svg">
-<img src="https://github.com/binhrobles/didactic-computing-machine/workflows/React%20Client%20Dev/badge.svg">
-
+<img src="https://github.com/binhrobles/didactic-computing-machine/workflows/Redis%20Listener%20Dev/badge.svg"> <img src="https://github.com/binhrobles/didactic-computing-machine/workflows/Express%20Server%20Dev/badge.svg"> <img src="https://github.com/binhrobles/didactic-computing-machine/workflows/NGINX%20Dev/badge.svg"> <img src="https://github.com/binhrobles/didactic-computing-machine/workflows/React%20Client%20Dev/badge.svg">
 <img src="https://github.com/binhrobles/didactic-computing-machine/workflows/Prod%20Deploy/badge.svg">
 
 # didactic-computing-machine
@@ -33,6 +29,12 @@ Intentionally complicated React, Node, multi-container Docker project with Githu
 
 - Remember to first check out the repo if using it in the job
 - image didn't publish until it was explicitly tagged
+
+### Terraform Setup Action
+
+- https://github.com/hashicorp/setup-terraform
+- Can be used to facilitate a workflow where pull-requests -> `terraform plan` and pushes to master -> `terraform apply -auto-approve`
+- would require short pull request -> merge deltas
 
 ## For next time
 
