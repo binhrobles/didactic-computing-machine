@@ -14,6 +14,7 @@ provider "aws" {
 
 /* ----- EB resources ----- */
 resource "aws_security_group" "eb" {
+  name_prefix = "eb"
   description = "Facilitates communication b/w EB, Elasticache, and RDS"
 }
 
@@ -26,6 +27,7 @@ resource "aws_elastic_beanstalk_application" "didactic-eb" {
 
 /* ----- Elasticache resources ----- */
 resource "aws_security_group" "elasticache" {
+  name_prefix = "elasticache"
   description = "Elasticache security group"
 
   ingress {
@@ -54,6 +56,7 @@ resource "aws_db_instance" "postgres" {
 }
 
 resource "aws_security_group" "postgres" {
+  name_prefix = "postgres"
   description = "Postgres security group"
 
   ingress {
