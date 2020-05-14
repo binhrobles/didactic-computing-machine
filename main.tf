@@ -18,7 +18,7 @@ module "eb" {
   region                = var.region
   db_user               = var.db_user
   db_password           = var.db_password
-  postgres_domain       = module.postgres.domain
+  postgres_address      = module.postgres.address
   postgres_port         = module.postgres.port
   redis_cluster_address = module.redis.cluster_address
   redis_port            = module.redis.port

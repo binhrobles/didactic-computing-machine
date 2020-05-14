@@ -42,7 +42,7 @@ resource "aws_elastic_beanstalk_environment" "didactic-eb-env" {
   setting {
     namespace = "aws:elasticbeanstalk:application:environment"
     name      = "PGHOST"
-    value     = var.postgres_domain
+    value     = var.postgres_address
   }
 
   setting {

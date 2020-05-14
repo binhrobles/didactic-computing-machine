@@ -1,5 +1,5 @@
-output "domain" {
-  value = aws_db_instance.postgres.domain
+output "address" {
+  value = aws_db_instance.postgres.address
 }
 
 output "port" {
