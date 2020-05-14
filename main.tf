@@ -13,8 +13,7 @@ provider "aws" {
 }
 
 /* ----- EB resources ----- */
-resource "aws_security_group" "sg-eb_common" {
-  name        = "sg-eb_common"
+resource "aws_security_group" "eb" {
   description = "Facilitates communication b/w EB, Elasticache, and RDS"
 }
 
@@ -26,15 +25,14 @@ resource "aws_elastic_beanstalk_application" "didactic-eb" {
 /* https://github.com/einaregilsson/beanstalk-deploy */
 
 /* ----- Elasticache resources ----- */
-resource "aws_security_group" "sg-elasticache" {
-  name        = "sg-elasticache"
+resource "aws_security_group" "elasticache" {
   description = "Elasticache security group"
 
   ingress {
     from_port       = 6379
     to_port         = 6379
     protocol        = "tcp"
-    security_groups = [aws_security_group.sg-eb_common.name]
+    security_groups = [aws_security_group.eb.name]
   }
 }
 
@@ -43,7 +41,7 @@ resource "aws_elasticache_cluster" "redis" {
   engine             = "redis"
   node_type          = "cache.t2.micro"
   num_cache_nodes    = 1
-  security_group_ids = [aws_security_group.sg-eb_common.id]
+  security_group_ids = [aws_security_group.eb.id]
 }
 
 /* ----- RDS resources ----- */
@@ -55,14 +53,13 @@ resource "aws_db_instance" "postgres" {
   password          = var.db_password
 }
 
-resource "aws_security_group" "sg-postgres" {
-  name        = "sg-postgres"
+resource "aws_security_group" "postgres" {
   description = "Postgres security group"
 
   ingress {
     from_port       = 5432
     to_port         = 5432
     protocol        = "tcp"
-    security_groups = [aws_security_group.sg-eb_common.name]
+    security_groups = [aws_security_group.eb.name]
   }
 }
