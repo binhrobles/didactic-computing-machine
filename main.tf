@@ -34,7 +34,7 @@ resource "aws_security_group" "elasticache" {
     from_port       = 6379
     to_port         = 6379
     protocol        = "tcp"
-    security_groups = [aws_security_group.eb.name]
+    security_groups = [aws_security_group.eb.id]
   }
 }
 
@@ -63,6 +63,6 @@ resource "aws_security_group" "postgres" {
     from_port       = 5432
     to_port         = 5432
     protocol        = "tcp"
-    security_groups = [aws_security_group.eb.name]
+    security_groups = [aws_security_group.eb.id]
   }
 }
