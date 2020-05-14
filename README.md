@@ -11,8 +11,9 @@ Intentionally complicated React, Node, multi-container Docker project with Githu
 - Docker build Github Actions to build and publish the client, nginx, server, and worker images to DockerHub
 - EB Deploy Github Action (https://github.com/einaregilsson/beanstalk-deploy) handles uploading the EB config file to S3 and creating the EB version (thus deploying)
 - EB looks at the config file, pulls the images from DockerHub, and runs/exposes the application
-- NOTE: this works because Terraform creates specifically named application `didactic-computing-machine`
+- NOTE: this works because Terraform creates specifically named application `didactic-computing-machine` and env `DidacticComputingMachine-env-1`
   - if we wanted to create this more dynamically, or create multiple envs, the EB deploy action would need to look up the environment's app name
+  - how could we do this with branch names?
 
 ## Learnings
 
@@ -38,4 +39,5 @@ Intentionally complicated React, Node, multi-container Docker project with Githu
 
 ## For next time
 
+- dynamically create/deploy to EB app/env with branch names
 - Rollbacks?
