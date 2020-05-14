@@ -103,5 +103,5 @@ jobs:
         application_name: didactic-computing-machine
         environment_name: DidacticComputingMachine-env-1
         version_label: ${{ github.run_id }}
-        region: us-east-1
+        region: us-west-2
         deployment_package: deploy.zip

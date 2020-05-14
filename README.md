@@ -40,4 +40,5 @@ Intentionally complicated React, Node, multi-container Docker project with Githu
 ## For next time
 
 - dynamically create/deploy to EB app/env with branch names
+- multi region deploy
 - Rollbacks?
