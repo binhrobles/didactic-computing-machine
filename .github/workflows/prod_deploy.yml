@@ -82,26 +82,26 @@ jobs:
         path: worker
 
   #### ---- Notify EBS ---- ####
-  # notify_ebs:
-  #   needs: 
-  #     - publish_client
-  #     - publish_nginx
-  #     - publish_server
-  #     - publish_worker
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
+  notify_ebs:
+    needs: 
+      - publish_client
+      - publish_nginx
+      - publish_server
+      - publish_worker
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
 
-  #   - name: Create small zip
-  #     run: zip deploy.zip Dockerrun.aws.json
+    - name: Create small zip
+      run: zip deploy.zip Dockerrun.aws.json
 
-  #   - name: Send it to EB
-  #     uses: einaregilsson/beanstalk-deploy@v9
-  #     with:
-  #       aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-  #       aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #       application_name: didactic-computing-machine
-  #       environment_name: DidacticComputingMachine-env-1
-  #       version_label: ${{ github.run_id }}
-  #       region: us-west-2
-  #       deployment_package: deploy.zip
+    - name: Send it to EB
+      uses: einaregilsson/beanstalk-deploy@v9
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: didactic-computing-machine
+        environment_name: DidacticComputingMachine-env-1
+        version_label: ${{ github.run_id }}
+        region: us-west-2
+        deployment_package: deploy.zip
