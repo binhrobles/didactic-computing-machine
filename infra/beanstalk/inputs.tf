@@ -4,5 +4,5 @@ variable "db_password" {}
 variable "region" {}
 variable "postgres_address" {}
 variable "postgres_port" {}
-variable "redis_cluster_address" {}
+variable "redis_address" {}
 variable "redis_port" {}
